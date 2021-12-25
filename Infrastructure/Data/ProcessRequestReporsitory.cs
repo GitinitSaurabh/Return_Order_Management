@@ -41,11 +41,29 @@ namespace Infrastructure.Data
 
         public async Task<ProcessResponse> ProcessDetail(ProcessRequest processRequest)
         {
+
+            var packagingPriceIndex = new Dictionary<string, int>(){
+                {"Integral",100},
+                {"Accessory",50},
+                {"Protective sheath", 50}
+            };
+            var deliveryPriceIndex = new Dictionary<string, int>(){
+                {"Integral",200},
+                {"Accessory",100},
+            };
+            var processingPriceIndex = new Dictionary<string, int>(){
+                {"Integral",500},
+                {"Accessory",300},
+            };
             await _context.ProcessRequests.AddAsync(processRequest);
             var processResponse = new ProcessResponse();
-            processResponse.PackagingAndDeliveryCharge = 100;
+            processResponse.PackagingAndDeliveryCharge = 
+                deliveryPriceIndex[processRequest.ComponentDetail.ComponentType] 
+                + (processRequest.ComponentDetail.Quantity * packagingPriceIndex[processRequest.ComponentDetail.ComponentType] );
             processResponse.DateOfDelivery = DateTime.UtcNow;
-            processResponse.ProcessingCharge = 200;
+            processResponse.ProcessingCharge = processingPriceIndex[processRequest.ComponentDetail.ComponentType];
+            processResponse.id = processRequest.id;
+            processResponse.ProcessRequest = processRequest;
             await _context.ProcessResponse.AddAsync(processResponse);
             await _context.SaveChangesAsync();
             return processResponse;
