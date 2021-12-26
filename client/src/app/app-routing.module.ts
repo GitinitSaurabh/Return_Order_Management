@@ -11,7 +11,7 @@ const routes: Routes = [
   {path: 'contact', component: ContactComponent},
   {path: 'account', loadChildren: () => import('./account/account.module')
       .then(mod => mod.AccountModule)},
-  {path: 'forms', loadChildren: () => import('./forms/forms.module')
+  {path: 'forms',canActivate: [AuthGuard], loadChildren: () => import('./forms/forms.module')
       .then(mod => mod.FormsModule)},
   {path: '**', redirectTo:'', pathMatch: 'full'}  
 ];
