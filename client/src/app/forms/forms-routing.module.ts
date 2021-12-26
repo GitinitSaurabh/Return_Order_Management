@@ -7,7 +7,7 @@ import { ConfirmformComponent } from './confirmform/confirmform.component';
 
 const routes: Routes = [
   {path: 'returnform', component: ReturnformComponent},
-  {path: 'confirmform', component: ConfirmformComponent},
+  {path: 'confirmform/:id', component: ConfirmformComponent},
 ]
 @NgModule({
   declarations: [],

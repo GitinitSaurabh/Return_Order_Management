@@ -5,6 +5,6 @@ namespace Core.Interfaces
 {
     public interface IPackagingAndDelivery
     {
-        Task<ProcessResponse> GetPackagingDeliveryCharge(DefectiveComponentDetail defectiveComponentDetail);
+        Task<ProcessResponse> GetPackagingDeliveryCharge(ComponentDetail defectiveComponentDetail);
     }
 }

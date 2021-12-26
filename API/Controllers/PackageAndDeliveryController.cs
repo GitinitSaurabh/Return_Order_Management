@@ -16,10 +16,10 @@ namespace API.Controllers
             _repo = repo;
         }
 
-        [HttpGet]
-        public async Task<decimal> GetPackagingDeliveryCharge(int componentTypeId){
-            var processRequests = await _repo.GetProcessRequestsAsync();
-            return 179;
+        [HttpGet("{id}")]
+        public async Task<ProcessResponse> GetPackagingDeliveryCharge(int id){
+            return await _repo.GetProcessingAndDeliveryCharge(id);
+
         }
     }
 }

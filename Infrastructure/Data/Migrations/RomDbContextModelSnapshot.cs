@@ -42,7 +42,7 @@ namespace Infrastructure.Data.Migrations
                     b.ToTable("Billings");
                 });
 
-            modelBuilder.Entity("Core.Entities.DefectiveComponentDetail", b =>
+            modelBuilder.Entity("Core.Entities.ComponentDetail", b =>
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
@@ -70,18 +70,18 @@ namespace Infrastructure.Data.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
+                    b.Property<int>("ComponentDetailId")
+                        .HasColumnType("integer");
+
                     b.Property<string>("ContactNumber")
                         .HasColumnType("text");
-
-                    b.Property<int>("DefectiveComponentDetailId")
-                        .HasColumnType("integer");
 
                     b.Property<string>("UserName")
                         .HasColumnType("text");
 
                     b.HasKey("id");
 
-                    b.HasIndex("DefectiveComponentDetailId");
+                    b.HasIndex("ComponentDetailId");
 
                     b.ToTable("ProcessRequests");
                 });
@@ -125,9 +125,9 @@ namespace Infrastructure.Data.Migrations
 
             modelBuilder.Entity("Core.Entities.ProcessRequest", b =>
                 {
-                    b.HasOne("Core.Entities.DefectiveComponentDetail", "ComponentDetail")
+                    b.HasOne("Core.Entities.ComponentDetail", "ComponentDetail")
                         .WithMany()
-                        .HasForeignKey("DefectiveComponentDetailId")
+                        .HasForeignKey("ComponentDetailId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

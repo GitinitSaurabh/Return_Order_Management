@@ -1,1 +1,25 @@
-<p>confirmform works!</p>
+<table *ngIf= "request && charges" class="table table-dark table-striped">
+    <thead>
+        <tr>
+          <th scope="col">User Name</th>
+          <th scope="col">Type</th>
+          <th scope="col">Product Name</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Processing Charge</th>
+          <th scope="col">Delivery Charge</th>
+          <th scope="col">Delivery date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">{{request.userName}}</th>
+          <td>{{request.componentDetail.componentType}}</td>
+          <td>{{request.componentDetail.componentName}}</td>
+          <td>{{request.componentDetail.quantity}}</td>
+          <td>{{charges.processingCharge}}</td>
+          <td>{{charges.packagingAndDeliveryCharge}}</td>
+          <td>{{charges.dateOfDelivery}}</td>
+
+        </tr>
+      </tbody>
+  </table>

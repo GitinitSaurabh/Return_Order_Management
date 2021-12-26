@@ -15,30 +15,32 @@
         <div class="form-outline mb-4">
             <label for="Phone">Phone</label>
 
-          <input type="number" formControlName="contactNumber" class="form-control" />
+          <input type="text" formControlName="contactNumber" class="form-control" />
         </div>
+<fieldset formGroupName="componentDetail">
+  <div class="form-group form-outline mb-4">
+    <label for="Component Type">Component Type</label>
+    <select formControlName="componentType" class="form-control">
+        <option disabled>Select Type</option>
+        <option>Choose Type</option>
+        <option *ngFor="let type of componentType">{{type}}</option>
+    </select>
+    
+</div>
 
-        <div class="form-group form-outline mb-4">
-            <label for="Component Type">Component Type</label>
-            <select formControlName="componentType" class="form-control">
-                <option disabled>Select Type</option>
-                <option>Choose Type</option>
-                <option *ngFor="let type of componentType">{{type}}</option>
-            </select>
-            
-        </div>
+<div class="col form-outline mb-4">
+<div class="form-outline">
+    <label for="Component Name">Component Name</label>
+  <input type="text" formControlName="componentName" class="form-control" />
+</div>
+</div>
 
-      <div class="col form-outline mb-4">
-        <div class="form-outline">
-            <label for="Component Name">Component Name</label>
-          <input type="text" formControlName="componentName" class="form-control" />
-        </div>
-      </div>
-
-      <div class="form-outline mb-4">
-        <label for="Quantity">Quantity</label>
-        <input type="number" formControlName="quantity" class="form-control" />
-      </div>
+<div class="form-outline mb-4">
+<label for="Quantity">Quantity</label>
+<input type="number" formControlName="quantity" class="form-control" />
+</div>
+</fieldset>
+      
 
 
         <!-- Submit button -->

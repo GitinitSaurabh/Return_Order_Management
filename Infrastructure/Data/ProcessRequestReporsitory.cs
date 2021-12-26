@@ -24,6 +24,11 @@ namespace Infrastructure.Data
             await _context.SaveChangesAsync();
             return processRequest;
         }
+        public async Task<ProcessResponse> GetProcessingAndDeliveryCharge(int id)
+        {
+            return await _context.ProcessResponse
+            .FirstOrDefaultAsync(p => p.ProcessRequestId == id);
+        }
 
         public async Task<ProcessRequest> GetProcessRequestByIdAsync(int id)
         {
@@ -49,11 +54,11 @@ namespace Infrastructure.Data
             };
             var deliveryPriceIndex = new Dictionary<string, int>(){
                 {"Integral",200},
-                {"Accessory",100},
+                {"Accessory",100}
             };
             var processingPriceIndex = new Dictionary<string, int>(){
                 {"Integral",500},
-                {"Accessory",300},
+                {"Accessory",300}
             };
             await _context.ProcessRequests.AddAsync(processRequest);
             var processResponse = new ProcessResponse();

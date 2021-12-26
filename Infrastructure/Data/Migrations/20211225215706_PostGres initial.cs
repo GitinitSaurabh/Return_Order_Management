@@ -31,14 +31,14 @@ namespace Infrastructure.Data.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     UserName = table.Column<string>(type: "text", nullable: true),
                     ContactNumber = table.Column<string>(type: "text", nullable: true),
-                    DefectiveComponentDetailId = table.Column<int>(type: "integer", nullable: false)
+                    ComponentDetailId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ProcessRequests", x => x.id);
                     table.ForeignKey(
-                        name: "FK_ProcessRequests_DefectiveComponentDetails_DefectiveComponen~",
-                        column: x => x.DefectiveComponentDetailId,
+                        name: "FK_ProcessRequests_DefectiveComponentDetails_ComponentDetailId",
+                        column: x => x.ComponentDetailId,
                         principalTable: "DefectiveComponentDetails",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
@@ -93,9 +93,9 @@ namespace Infrastructure.Data.Migrations
                 column: "ProcessResponseId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProcessRequests_DefectiveComponentDetailId",
+                name: "IX_ProcessRequests_ComponentDetailId",
                 table: "ProcessRequests",
-                column: "DefectiveComponentDetailId");
+                column: "ComponentDetailId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ProcessResponse_ProcessRequestId",

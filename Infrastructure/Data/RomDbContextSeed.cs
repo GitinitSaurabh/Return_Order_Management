@@ -20,7 +20,7 @@ namespace Infrastructure.Data
                      var dataJson = 
                         File.ReadAllText(path + @"/Data/SeedData/DefectiveComponentDetails.json");
                     
-                    var data = JsonSerializer.Deserialize<List<DefectiveComponentDetail>>(dataJson);
+                    var data = JsonSerializer.Deserialize<List<ComponentDetail>>(dataJson);
                     foreach (var item in data)
                     {
                         context.DefectiveComponentDetails.Add(item);

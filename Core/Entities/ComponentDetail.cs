@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Core.Entities
 {
-    public class DefectiveComponentDetail : BaseEntity
+    public class ComponentDetail : BaseEntity
     {
         public string ComponentType { get; set; }
         public string ComponentName { get; set; }

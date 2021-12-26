@@ -14,7 +14,7 @@ namespace Infrastructure.Data
         }
 
         public DbSet<ProcessRequest> ProcessRequests { get; set; }
-        public DbSet<DefectiveComponentDetail> DefectiveComponentDetails { get; set; }
+        public DbSet<ComponentDetail> DefectiveComponentDetails { get; set; }
         public DbSet<ProcessResponse> ProcessResponse { get; set; }
         public DbSet<Billing> Billings { get; set; }
     }

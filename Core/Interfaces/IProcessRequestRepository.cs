@@ -12,6 +12,7 @@ namespace Core.Interfaces
          Task<ProcessResponse> ProcessDetail(ProcessRequest processRequest);
          Task<ProcessRequest> GetProcessRequestByIdAsync(int id);
          Task<IReadOnlyList<ProcessRequest>> GetProcessRequestsAsync();
+         Task<ProcessResponse> GetProcessingAndDeliveryCharge(int id);
          
         
     }
