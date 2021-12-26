@@ -23,7 +23,10 @@ namespace API.Controllers
         public async Task<ActionResult<ProcessResponse>> ProcessDetail([FromBody]ProcessRequest processRequest){
             return await _repo.ProcessDetail(processRequest);
         }
-
+        [HttpPost("completeprocessing")]
+        public ActionResult<string> CompleteProcessing(){
+            return  _repo.CompleteProcessing();
+        }
 
     }
 }

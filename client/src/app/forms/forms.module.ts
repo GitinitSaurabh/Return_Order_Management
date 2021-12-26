@@ -7,13 +7,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import { PaymentsuccessComponent } from './paymentsuccess/paymentsuccess.component';
 
 
 
 @NgModule({
   declarations: [
     ReturnformComponent,
-    ConfirmformComponent
+    ConfirmformComponent,
+    PaymentsuccessComponent
   ],
   imports: [
     CommonModule,

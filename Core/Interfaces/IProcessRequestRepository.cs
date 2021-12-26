@@ -8,11 +8,11 @@ namespace Core.Interfaces
 {
     public interface IProcessRequestRepository
     {
-         Task<ProcessRequest> AddProcessRequest(ProcessRequest processRequest);
          Task<ProcessResponse> ProcessDetail(ProcessRequest processRequest);
          Task<ProcessRequest> GetProcessRequestByIdAsync(int id);
          Task<IReadOnlyList<ProcessRequest>> GetProcessRequestsAsync();
          Task<ProcessResponse> GetProcessingAndDeliveryCharge(int id);
+         string CompleteProcessing();
          
         
     }

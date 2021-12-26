@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { ICharges } from 'src/app/shared/models/charges';
 import { IComponentDetail, IProcessRequest } from 'src/app/shared/models/processRequest';
 import { FormsService } from '../forms.service';
@@ -13,11 +13,20 @@ export class ConfirmformComponent implements OnInit {
 
   request: IProcessRequest;
   charges: ICharges;
-  constructor(private formsservice: FormsService, private activatedRoute: ActivatedRoute) { }
+  constructor(private formsservice: FormsService,private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
 
     this.loadRequest();
+  }
+  onSubmit(){
+    this.router.navigateByUrl('/forms/paymentsuccess')
+
+    // this.formsservice.paymentsuccess().subscribe(() =>{
+    //   this.router.navigateByUrl('/forms/paymentsuccess')
+    // }, error =>{
+    //   console.log(error);
+    // });
   }
 
   loadRequest(){

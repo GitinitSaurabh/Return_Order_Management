@@ -20,8 +20,6 @@ export class FormsService {
   constructor(private http: HttpClient, private router: Router) { }
   
   submitRequest(request: IProcessRequest) {
-    console.log(request);
-    
     return this.http.post(this.baseUrl + 'ComponentProcessing', request).pipe(
       map((request: ICharges)=>{
         if(request){
@@ -39,5 +37,9 @@ export class FormsService {
       return this.http.get<ICharges>(this.baseUrl + 'PackageAndDelivery/' + id);
 
     }
+
+    paymentsuccess(res:void){
+      return this.http.post(this.baseUrl + 'ComponentProcessing/CompleteProcessing',res);  
+      }
 
   }

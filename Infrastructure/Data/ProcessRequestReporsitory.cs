@@ -16,14 +16,6 @@ namespace Infrastructure.Data
             _context = context;
         }
 
-        public async Task<ProcessRequest> AddProcessRequest(ProcessRequest processRequest)
-        {
-            
-            await _context.ProcessRequests.AddAsync(processRequest);
-            await _context.DefectiveComponentDetails.AddRangeAsync(processRequest.ComponentDetail);
-            await _context.SaveChangesAsync();
-            return processRequest;
-        }
         public async Task<ProcessResponse> GetProcessingAndDeliveryCharge(int id)
         {
             return await _context.ProcessResponse
@@ -75,7 +67,7 @@ namespace Infrastructure.Data
 
         }
 
-        public string CompleteProcessing(Billing billing)
+        public string CompleteProcessing()
         {
             
             return "Completed Billing Process";
