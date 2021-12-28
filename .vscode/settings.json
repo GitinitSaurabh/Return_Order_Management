@@ -17,10 +17,10 @@
                 "name": "Linux",
                 "description": "SFTP folder",
 
-                "host": "64.227.186.39", "port": 22,
-                "user": "root", "password": "supremeKai1@A",
+                "host": "http://52.172.239.139", "port": 22,
+                "user": "digitalhonors", "password": "digitalhonors1@A",
 
-                "dir": "/var/rom",
+                "dir": "/var/digitalhonors",
                 "mappings": {
                     "publish/**": "/"
                 }

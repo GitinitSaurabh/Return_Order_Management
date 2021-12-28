@@ -3,8 +3,8 @@
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="Return_Order_Management" expanded="True" selected="True">
-            <Node name="API" expanded="True" />
+          <Node name="Return_Order_Management" expanded="True">
+            <Node name="API" selected="True" />
           </Node>
         </State>
       </Pad>
