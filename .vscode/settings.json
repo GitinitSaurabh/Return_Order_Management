@@ -17,7 +17,7 @@
                 "name": "Linux",
                 "description": "SFTP folder",
 
-                "host": "http://52.172.239.139", "port": 22,
+                "host": "52.172.239.139", "port": 22,
                 "user": "digitalhonors", "password": "digitalhonors1@A",
 
                 "dir": "/var/digitalhonors",
