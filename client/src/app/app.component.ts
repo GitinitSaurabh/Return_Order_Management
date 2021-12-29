@@ -1,7 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from './account/account.service';
-import { IProcessRequest } from './shared/models/processRequest';
 
 @Component({
   selector: 'app-root',
