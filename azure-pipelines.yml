@@ -41,15 +41,6 @@ steps:
       arguments: '--configuration $(BuildConfiguration)'
 
 
-
-  
-  - task: CopyFiles@2
-    displayName: 'Copy ARM Templates to release'
-    inputs:
-      SourceFolder: ARMTemplates
-      Contents: '*'
-      TargetFolder: '$(build.artifactstagingdirectory)\ARMTemplates'
-
   - task: DotNetCoreCLI@2
     displayName: "Publish"
     inputs:
