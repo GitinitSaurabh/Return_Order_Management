@@ -8,9 +8,17 @@ services:
       POSTGRES_USER: appuser
     ports: 
         - 5432:5432 
+    volumes:
+  # parallels on mac os does not support hard links, that's why we have to do it
+        - postgres-data:/data/postgres
+
 
   adminer:
     image: adminer
     restart: always
     ports:
       - 8080:8080
+ 
+volumes:
+    postgres-data:
+        name: postgres_volume_name

@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Infrastructure.Data.Migrations
 {
     [DbContext(typeof(RomDbContext))]
-    [Migration("20211228210607_PostGres initial")]
+    [Migration("20220102222814_PostGres initial")]
     partial class PostGresinitial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
