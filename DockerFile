@@ -1,17 +1,25 @@
+# syntax=docker/dockerfile:1
+FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
+# install nodejs for angular, webpack middleware
+RUN apt-get update  
+RUN apt-get -f install  
+RUN apt-get install -y wget  
+RUN wget -qO- https://deb.nodesource.com/setup_11.x | bash -  
+RUN apt-get install -y build-essential nodejs
 
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build-env
 WORKDIR /app
 
-# Copy the published web app
-COPY *.csproj ./
+# Copy csproj and restore as distinct layers
+COPY /API/*.csproj ./
 RUN dotnet restore
 
 # Copy everything else and build
 COPY . ./
-RUN dotnet publish -c Release -o out
+RUN dotnet publish -c Release -o publish Return_Order_Management.sln
 
-# Run command
-FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim
+# Build runtime image
+FROM mcr.microsoft.com/dotnet/aspnet:5.0
 WORKDIR /app
-COPY --from=build-env /app/out .
+COPY --from=build /app/publish ./
+
 ENTRYPOINT ["dotnet", "API.dll"]

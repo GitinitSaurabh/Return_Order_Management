@@ -1,24 +1,33 @@
+version: '3'
 services:
-
-  db:
-    image: postgres
-    restart: always
-    environment:
-      POSTGRES_PASSWORD: secret
-      POSTGRES_USER: appuser
-    ports: 
-        - 5432:5432 
-    volumes:
-  # parallels on mac os does not support hard links, that's why we have to do it
-        - postgres-data:/data/postgres
-
-
-  adminer:
-    image: adminer
-    restart: always
+  web:
+    container_name: 'accman-web-app'
+    image: 'accman-web'
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
-      - 8080:8080
- 
+      - '8090:80'
+    depends_on:
+      - 'postgres'
+    networks:
+      - accman-network  
+
+  postgres:
+    ports:
+      - '5432:5432'
+    container_name: accman-postgresql
+    environment:
+      - POSTGRES_PASSWORD=mypass
+    volumes:
+      - 'accman-postgresql-volume:/var/lib/postgresql/data'
+    image: 'postgres:latest'
+    networks:
+      - accman-network
+
 volumes:
-    postgres-data:
-        name: postgres_volume_name
+  accman-postgresql-volume:
+
+networks:
+  accman-network:
+    driver: bridge
