@@ -40,6 +40,10 @@ namespace API
             services.AddScoped(typeof(IGenericRepository<>),typeof(GenericRepository<>));
             services.AddControllers();
             services.AddAutoMapper(typeof(MappingProfiles));
+
+
+
+
             services.AddDbContext<RomDbContext>(x => 
                 x.UseNpgsql(_configuration.GetConnectionString("DefaultConnection")));
             services.AddDbContext<AppIdentityDbContext>(x => {
