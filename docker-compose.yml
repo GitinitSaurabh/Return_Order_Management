@@ -1,31 +1,36 @@
-version: '3'
-services:
-  web:
-    container_name: 'web-app'
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - '8090:80'
-    depends_on:
-      - 'postgres' 
+version: "3.8"
 
-  postgres:
-    image: postgres
-    container_name: "postgres"
-    restart: always
+services:
+  database:
+    container_name: database
+    image: postgres:latest
+    restart: unless-stopped
     environment:
       - POSTGRES_PASSWORD=secret
       - POSTGRES_USER=appuser
       - POSTGRES_DB=ReturnOrderManagementDb
-
-    expose: 
-      - "5432"
-
-  adminer:
-    image: adminer
-    restart: always
     ports:
-      - 8080:8080
-volumes:
-  accman-postgresql-volume:
+      - "5439:5432"
+  api:
+    container_name: api
+    restart: unless-stopped
+    build:
+      context: .
+
+    ports:
+      - 6578:8800
+    environment:
+      - ASPNETCORE_ENVIRONMENT=LocalDocker
+      - ASPNETCORE_URLS=http://+:8800
+    depends_on:
+      - database
+  # web:
+  #   container_name: web
+  #   restart: unless-stopped
+  #   build:
+  #    context: client
+  #   ports:
+  #     - '4200:80'
+  #   depends_on:
+  #     - api
+

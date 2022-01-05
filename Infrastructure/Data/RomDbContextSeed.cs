@@ -15,31 +15,31 @@ namespace Infrastructure.Data
         public static async Task SeedAsync(RomDbContext context, ILoggerFactory loggerFactory){
             try
             {
-                var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-                 if(!context.DefectiveComponentDetails.Any()){
-                     var dataJson = 
-                        File.ReadAllText(path + @"/Data/SeedData/DefectiveComponentDetails.json");
+                // var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+                //  if(!context.DefectiveComponentDetails.Any()){
+                //      var dataJson = 
+                //         File.ReadAllText(path + @"/Data/SeedData/DefectiveComponentDetails.json");
                     
-                    var data = JsonSerializer.Deserialize<List<ComponentDetail>>(dataJson);
-                    foreach (var item in data)
-                    {
-                        context.DefectiveComponentDetails.Add(item);
-                    }
-                    await context.SaveChangesAsync();
-                 }
+                //     var data = JsonSerializer.Deserialize<List<ComponentDetail>>(dataJson);
+                //     foreach (var item in data)
+                //     {
+                //         context.DefectiveComponentDetails.Add(item);
+                //     }
+                //     await context.SaveChangesAsync();
+                //  }
             
             
-                 if(!context.ProcessRequests.Any()){
-                     var dataJson = 
-                        File.ReadAllText(path + @"/Data/SeedData/ProcessRequest.json");
+                //  if(!context.ProcessRequests.Any()){
+                //      var dataJson = 
+                //         File.ReadAllText(path + @"/Data/SeedData/ProcessRequest.json");
                     
-                    var data = JsonSerializer.Deserialize<List<ProcessRequest>>(dataJson);
-                    foreach (var item in data)
-                    {
-                        context.ProcessRequests.Add(item);
-                    }
-                    await context.SaveChangesAsync();
-                 }
+                //     var data = JsonSerializer.Deserialize<List<ProcessRequest>>(dataJson);
+                //     foreach (var item in data)
+                //     {
+                //         context.ProcessRequests.Add(item);
+                //     }
+                //     await context.SaveChangesAsync();
+                //  }
             }
             catch (Exception ex)
             {
