@@ -15,8 +15,8 @@ spec:
         app: romapi
     spec:
       containers:
-      - name: romapi
-        image: seshademo.azurecr.io/romapi:latest
+      - name: seshademo
+        image: seshademo.azurecr.io/seshademo:latest
         ports:
         - containerPort: 8080
       imagePullSecrets:
