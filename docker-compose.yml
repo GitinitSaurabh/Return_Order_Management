@@ -1,29 +1,37 @@
-version: "3.8"
+version: "3"
 
 services:
   database:
     container_name: database
     image: postgres:latest
-    restart: unless-stopped
+    restart: always
     environment:
       - POSTGRES_PASSWORD=secret
       - POSTGRES_USER=appuser
       - POSTGRES_DB=ReturnOrderManagementDb
     ports:
-      - "5439:5432"
+      - "5432:5432"
   api:
     container_name: api
-    restart: unless-stopped
+    platform: linux/x86_64
+    image: superacr2.azurecr.io/api
+    restart: always
     build:
       context: .
 
     ports:
-      - 6578:8800
+      - 80:80
     environment:
       - ASPNETCORE_ENVIRONMENT=LocalDocker
-      - ASPNETCORE_URLS=http://+:8800
+      - ASPNETCORE_URLS=http://+:80
     depends_on:
       - database
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
   # web:
   #   container_name: web
   #   restart: unless-stopped
