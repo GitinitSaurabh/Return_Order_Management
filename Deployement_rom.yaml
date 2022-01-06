@@ -1,34 +1,34 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rom-deployment
+  name: seshademo
   labels:
-    app: romapi
+    app: seshademo
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: romapi
+      app: seshademo
   template:
     metadata:
       labels:
-        app: romapi
+        app: seshademo
     spec:
       containers:
-      - name: romapi
-        image: seshademo.azurecr.io/romapi:latest
+      - name: seshademo
+        image: seshademo.azurecr.io/seshademo:latest
         ports:
         - containerPort: 8080
       imagePullSecrets:
-      - name: returnordersvcsecret
+      - name: webapisvcsecret
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: returnordermanagementservicesvc
+  name: seshademo
 spec:
   type: LoadBalancer
   ports:
   - port: 80
   selector:
-    app: romapi
+    app: seshademo
