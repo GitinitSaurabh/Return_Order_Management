@@ -20,7 +20,7 @@
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Deployement_rom.yaml" CopyToPublishDirectory="Always" />
+    <None Include="..\Deployement_rom.yaml" CopyToPublishDirectory="PreserveNewest" />
   </ItemGroup>
 
 </Project>
