@@ -19,5 +19,8 @@
     <Content Include="Content\**" CopyToPublishDirectory="PreserveNewest" />
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\*.yaml" CopyToOutputDirectory="PreseveNewest" />
+  </ItemGroup>
 
 </Project>
