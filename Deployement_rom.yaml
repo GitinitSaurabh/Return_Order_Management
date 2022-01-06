@@ -1,0 +1,34 @@
+apiVersion: app/v1
+kind: Deployment
+metadata:
+  name: rom-deployment
+  labels:
+    app: rom
+spec:
+  replicas: 1
+  selector:
+    matchLables:
+      app: rom
+  template:
+    metadata:
+      lables:
+        app: rom
+    spec:
+      containers:
+      - name: apiservice
+        image: seshademo.azurecr.io/apiservice:latest
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+      - name: webapisvcsecret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: romservicesvc
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: rom
