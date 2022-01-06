@@ -14,7 +14,7 @@ services:
   api:
     container_name: api
     platform: linux/x86_64
-    image: superacr2.azurecr.io/api
+    image: finald.azurecr.io/api
     restart: always
     build:
       context: .
