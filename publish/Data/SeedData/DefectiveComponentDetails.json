@@ -1,0 +1,18 @@
+[
+  {
+    "Id": 1,
+    "ComponentType": "Accessory",
+    "ComponentName": "Watch",
+    "Quantity": 2
+  },
+  {
+    "Id": 2,
+    "ComponentType": "Accessory",
+    "ComponentName": "CD Player",
+    "Quantity": 1  },
+  {
+    "Id": 3,
+    "ComponentType": "Integral",
+    "ComponentName": "Monitor",
+    "Quantity": 2  }
+]

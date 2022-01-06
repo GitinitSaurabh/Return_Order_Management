@@ -1,0 +1,20 @@
+[
+  {
+    "Id": 1,
+    "UserName": "Ramesh",
+    "ContactNumber": "123456789",
+    "DefectiveComponentDetailId": 1
+  },
+  {
+    "Id": 2,
+    "UserName": "Suresh",
+    "ContactNumber": "123456789",
+    "DefectiveComponentDetailId": 2
+  },
+  {
+    "Id": 3,
+    "UserName": "Rockesh",
+    "ContactNumber": "123456789",
+    "DefectiveComponentDetailId": 3
+  }
+]
