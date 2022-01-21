@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
-import { ICharges } from 'src/app/shared/models/charges';
-import { IComponentDetail, IProcessRequest } from 'src/app/shared/models/processRequest';
+import { IProcessedPension } from 'src/app/shared/models/processedPension';
+import {IProcessRequest } from 'src/app/shared/models/processRequest';
 import { FormsService } from '../forms.service';
 
 @Component({
@@ -11,8 +11,8 @@ import { FormsService } from '../forms.service';
 })
 export class ConfirmformComponent implements OnInit {
 
-  request: IProcessRequest;
-  charges: ICharges;
+  request: IProcessedPension;
+  // charges: ICharges;
   constructor(private formsservice: FormsService,private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -30,16 +30,12 @@ export class ConfirmformComponent implements OnInit {
   }
 
   loadRequest(){
-    this.formsservice.getProcessResponse(+this.activatedRoute.snapshot.paramMap.get('id')).subscribe(request => {
-      this.request = request;
-    },error =>{
-        console.log(error);
-      });
-    this.formsservice.getCharges(+this.activatedRoute.snapshot.paramMap.get('id')).subscribe(charges => {
-      this.charges = charges;
-    },error =>{
-        console.log(error);
-      });
+    this.request = this.formsservice.processedPensionDetails;
+    // this.formsservice.getCharges(+this.activatedRoute.snapshot.paramMap.get('id')).subscribe(charges => {
+    //   this.charges = charges;
+    // },error =>{
+    //     console.log(error);
+    //   });
 
   }
 

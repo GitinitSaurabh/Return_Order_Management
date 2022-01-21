@@ -36,9 +36,11 @@ export class AccountService {
   }
 
   login(values: any){
-    return this.http.post(this.baseUrl + 'account/login', values).pipe(
+    console.log(values);
+    return this.http.post(environment.authApi, values).pipe(
       map((user: IUser) => {
         if(user){
+          console.log(user.token);
           localStorage.setItem('token', user.token);
           this.currentUserSource.next(user);
         }

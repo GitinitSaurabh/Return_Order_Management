@@ -4,7 +4,11 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://localhost:5001/api/'
+  apiUrl: 'http://localhost:4374/api/',
+  pensionerDetailApi: 'http://localhost:4374/api/PensionerDetail/getPensionerDetails',
+  authApi: 'http://localhost:35485/api/auth',
+  processPensionApi: 'http://localhost:37356/api/ProcessPension'
+
 };
 
 /*

@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rom-deployment
+  name: seshademo
   labels:
-    app: romapi
+    app: seshademo
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: romapi
+      app: seshademo
   template:
     metadata:
       labels:
-        app: romapi
+        app: seshademo
     spec:
       containers:
       - name: seshademo
@@ -25,10 +25,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: romapisvc
+  name: seshademo
 spec:
   type: LoadBalancer
   ports:
   - port: 80
   selector:
-    app: romapi
+    app: seshademo

@@ -3,11 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { ContactComponent } from './contact/contact.component';
 import { AuthGuard } from './core/guards/auth.guard';
 import { HomeComponent } from './home/home.component';
-import { RequestsComponent } from './requests/requests.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'admin', canActivate: [AuthGuard],component: RequestsComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'account', loadChildren: () => import('./account/account.module')
       .then(mod => mod.AccountModule)},

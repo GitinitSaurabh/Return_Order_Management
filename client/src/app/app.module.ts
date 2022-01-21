@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import { CoreModule } from './core/core.module';
-import { RequestsModule } from './requests/requests.module';
 import { HomeModule } from './home/home.module';
 import { ContactModule } from './contact/contact.module';
 import { AccountModule } from './account/account.module';
@@ -21,11 +20,9 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     HttpClientModule,
     CoreModule,
-    RequestsModule,
     HomeModule,
     ContactModule,
     AccountModule,
-    RequestsModule,
     FormsModule
   ],
   providers: [],
