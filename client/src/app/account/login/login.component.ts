@@ -34,8 +34,11 @@ export class LoginComponent implements OnInit {
       this.router.navigateByUrl(this.returnUrl || '/forms/returnform');
 
     }, error => {
-      console.log(error)
+      this.InvalidCredentials();
     });
     
+  }
+  InvalidCredentials() {
+    window.alert('Invalid User Id or Password');
   }
 }

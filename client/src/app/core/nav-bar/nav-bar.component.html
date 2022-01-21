@@ -4,16 +4,13 @@
 
     <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
       <li><a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link px-2">Home</a></li>
-      <li><a href="#" class="nav-link px-2">Features</a></li>
-      <li><a [routerLink]="['/forms/returnform']" routerLinkActive="active" class="nav-link px-2">Return Request</a></li>
+      <li><a [routerLink]="['/forms/returnform']" routerLinkActive="active" class="nav-link px-2">Process Pension</a></li>
       <li><a [routerLink]="['/contact']" routerLinkActive="active"  class="nav-link px-2">Contact Us</a></li>
-      <li><a 
-        [routerLink]="['/admin']" routerLinkActive="active"  class="nav-link px-2">Admin</a></li>
+      
     </ul>
     <ng-container *ngIf="(currentUser$ | async) === null" >
       <div class="nav col-md-3 col-md-auto mb-2 justify-content-center mb-md-0">
         <button type="button"  [routerLink]="['/account/login']" routerLinkActive="router-link-active"  class="btn btn-outline-primary me-2">Login</button>
-        <button type="button" [routerLink]="['/account/register']" routerLinkActive="router-link-active"  class="btn btn-primary">Sign-up</button>
       </div>
     </ng-container>
     

@@ -22,23 +22,24 @@ export class ReturnformComponent implements OnInit {
 
   createRequestForm(){
     this.returnForm = new FormGroup({
-      aadhaarCardNumber: new FormControl()
+      aadhaarCardNumber: new FormControl('',[Validators.required,Validators.pattern(/^\d{4}\d{4}\d{4}$/)])
     });
 
   }
 
   onSubmit(){
 
-    console.log(this.returnForm.value);
     this.formsservice.submitRequest(this.returnForm.value)
     .subscribe((res: IProcessedPension) =>{
       this.router.navigateByUrl('/forms/confirmform/')
     }, error =>{
-      console.log(error);
+      this.InvalidAadhaarId();
     });
 
   }
-
+  InvalidAadhaarId() {
+    window.alert('Invalid Aadhaar Id');
+  }
   
 
 }
